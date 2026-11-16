@@ -47,8 +47,8 @@ export default function Page() {
       {unverified > 0 && (
         <div className="mb-6 rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900">
           <strong>Sólo en desarrollo:</strong> se están mostrando {unverified}{" "}
-          contacto{unverified === 1 ? "" : "s"} sin verificar (ver{" "}
-          <code>DATA_TODO.md</code>). En producción sólo aparecen los chequeados
+          contacto{unverified === 1 ? "" : "s"} sin verificar (<code>verified: false</code> en{" "}
+          <code>data/representatives.json</code>). En producción sólo aparecen los chequeados
           contra la fuente oficial.
         </div>
       )}

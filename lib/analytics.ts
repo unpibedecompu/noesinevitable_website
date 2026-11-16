@@ -1,7 +1,7 @@
 /**
  * Eventos de embudo, sin lock-in a un proveedor.
  *
- * OJO (ver PROJECT_SPEC): no hay forma de saber si el usuario realmente apretó
+ * OJO: no hay forma de saber si el usuario realmente apretó
  * "enviar" en su cliente de mail. `email_client_opened` es el mejor proxy que
  * tenemos y hay que leerlo como una aproximación, no como envíos.
  *

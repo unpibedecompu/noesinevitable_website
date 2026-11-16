@@ -34,7 +34,7 @@ const OFFICE_ORDER: Record<string, number> = {
 };
 
 const REPO_URL =
-  "https://github.com/fourofclubs001/unpibedecompu/tree/master/strategy/contacta_representante_latam";
+  "https://github.com/unpibedecompu/noesinevitable_website";
 
 /** Sexo del remitente (obligatorio): "Otro" deja "ciudadano/a" en el mail. */
 type SenderGender = Gender | "otro";
