@@ -86,6 +86,15 @@
 - El hook `trackFunnel` (`lib/analytics.ts`) es vendor-agnostic — dispara a
   `window.umami`, `window.plausible`, `window.gtag` o `window.fathom`, el
   que esté cargado. Hoy solo Umami está cargado.
+  - Eventos de `lib/analytics.ts` que no aparecen en otros docs (todos en
+    `components/ContactForm.tsx`; al 2026-11-16 ninguno tiene datos en
+    Umami: nadie usó esos botones todavía):
+    - `email_didnt_open_clicked` (prop `office`): click en "¿No se abrió?
+      Copiá el mensaje", el fallback del paso 3 cuando el mail no se abrió
+      en el cliente. Señal de que el `mailto:`/deep link falla.
+    - `write_another_clicked`: click en "Escribirle a alguien más" en el
+      paso 4; vuelve al paso 3.
+    - `repo_link_clicked`: click en "Colaborá en GitHub" al pie del paso 4.
 
 ## Envío de mails
 
