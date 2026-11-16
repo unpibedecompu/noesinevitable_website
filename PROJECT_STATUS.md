@@ -55,8 +55,9 @@
 - **Umami Cloud** (funnel: país elegido, mensaje generado, click en
   Gmail/Outlook, compartido): **conectado y confirmado funcionando** desde
   2026-09-11, en cuenta separada `lucasvitali001@gmail.com` (no
-  `unpibedecompu@gmail.com`). Website "contacta-representante-latam",
-  domain `contacta-representante-latam.unpibedecompu.workers.dev`.
+  `unpibedecompu@gmail.com`). Website "noesinevitable", domain
+  `noesinevitable.org` (renombrado 2026-11-16; antes
+  "contacta-representante-latam", mismo ID y mismos datos).
   Website ID `948684fb-65ac-48d6-bd97-770b72bd8440`, seteado en
   `NEXT_PUBLIC_UMAMI_WEBSITE_ID` (Builds → Variables and secrets).
   - Bug histórico (encontrado y arreglado 2026-09-11): el ID que estaba
