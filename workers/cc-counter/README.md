@@ -97,6 +97,31 @@ esa fila. Los días anteriores se suman una vez por día (fila `past`); cada
 corrida suma sólo las filas de hoy. Los números pueden tener hasta 15
 minutos de atraso.
 
+## Cambios de esquema
+
+`schema.sql` usa `CREATE TABLE IF NOT EXISTS`: si una tabla ya existe con
+otra forma, `npm run schema` no la cambia y el Worker falla en cada mail. Pasó
+en 2026-11: `counts` había quedado con la forma vieja (sin `day`) y no se
+contó ningún mail por semanas (en Email Routing figuraban como "Delivery
+failed").
+
+Para que no vuelva a pasar callado:
+
+- **`npm run check:schema`** compara las columnas de cada tabla de la base
+  remota con `schema.sql` y falla si no coinciden (`-- --local` para la base
+  de `wrangler dev`). Corre solo antes de `npm run deploy` y después de
+  `npm run schema`. Las tablas viejas que ya no están en `schema.sql`
+  (`alerts`, `people`) se ignoran.
+- **Aviso por mail:** si contar un mail o el cron de 15 minutos tira un
+  error, el Worker manda un mail a `ALERT_TO`, a lo sumo uno por día y por
+  lugar (`error-mail:<día>`, `error-cron:<día>` en `notices`). El mail igual
+  falla (error temporal), así el remitente lo reintenta y se cuenta cuando
+  se arregle.
+
+Si cambiás una tabla existente: migrarla a mano en la base remota (`ALTER
+TABLE`, o `DROP TABLE` + `npm run schema` si se pueden perder sus filas)
+antes de deployar el Worker nuevo.
+
 ## Alarma de Umami
 
 Umami Cloud no manda alertas de uso ni tiene API de uso (la página *Settings →

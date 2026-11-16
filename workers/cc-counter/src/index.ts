@@ -101,12 +101,20 @@ export default {
       : addresses(message.headers.get("to")).find((a) => REPS.has(a));
 
     if (rep) {
-      await env.DB.prepare(
-        `INSERT INTO counts (day, email, country, sent) VALUES (?1, ?2, ?3, 1)
-         ON CONFLICT(day, email) DO UPDATE SET sent = sent + 1`,
-      )
-        .bind(today(), rep, REPS.get(rep)!.country)
-        .run();
+      try {
+        await env.DB.prepare(
+          `INSERT INTO counts (day, email, country, sent) VALUES (?1, ?2, ?3, 1)
+           ON CONFLICT(day, email) DO UPDATE SET sent = sent + 1`,
+        )
+          .bind(today(), rep, REPS.get(rep)!.country)
+          .run();
+      } catch (err) {
+        await reportError(env, "mail", err);
+        // Relanzar: Email Routing rechaza el mail con un error temporal y el
+        // servidor del remitente lo reintenta (Gmail, por días). Así, una vez
+        // arreglado, los mails que siguen en cola se cuentan.
+        throw err;
+      }
     }
     // Sin forward ni reject: Email Routing descarta el mail.
   },
@@ -114,8 +122,13 @@ export default {
   async scheduled(controller: ScheduledController, env: Env): Promise<void> {
     if (controller.cron === UMAMI_CRON) await checkUmami(env);
     else {
-      await updatePublicStats(env);
-      await checkDaily(env);
+      try {
+        await updatePublicStats(env);
+        await checkDaily(env);
+      } catch (err) {
+        await reportError(env, "cron", err);
+        throw err;
+      }
     }
   },
 
@@ -373,6 +386,38 @@ async function checkUmami(env: Env): Promise<void> {
 }
 
 type Message = { subject: string; body: string[] };
+
+/**
+ * Avisa por mail que contar un mail (`mail`) o recalcular los totales
+ * (`cron`) falló, a lo sumo una vez por día y lugar. Sin esto un error (p. ej.
+ * una tabla de D1 con otra forma que la de schema.sql) pasa desapercibido: los
+ * mails quedan como "Delivery failed" en Email Routing y /home deja de
+ * actualizarse. Nunca tira: el error original es el que importa.
+ */
+async function reportError(env: Env, where: "mail" | "cron", err: unknown): Promise<void> {
+  const what = where === "mail" ? "contar un mail" : "recalcular los totales públicos";
+  try {
+    await notifyOnce(env, `error-${where}:${today()}`, 1, {
+      subject: `noesinevitable.org: el Worker cc-counter falló al ${what}`,
+      body: [
+        `Error: ${String(err)}`,
+        "",
+        where === "mail"
+          ? "Los mails con CC a registro@ no se están contando (Email Routing los"
+          : "/stats no se actualiza: /home muestra totales viejos.",
+        where === "mail"
+          ? "marca como \"Delivery failed\"; el remitente los reintenta un tiempo)."
+          : "",
+        "",
+        "Si el error es de una tabla o columna, correr `npm run check:schema`",
+        "en workers/cc-counter/. Este aviso se repite como mucho una vez por día.",
+      ],
+    });
+  } catch {
+    // D1 caído del todo (`notices` tampoco anda): no avisar. Mandar sin
+    // deduplicar sería un mail por cada mail entrante y cada reintento.
+  }
+}
 
 /** Avisa al cruzar el 70% y el 90% de `limit`, una vez por umbral y `key`. */
 async function maybeAlert(
