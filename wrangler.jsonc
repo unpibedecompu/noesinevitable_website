@@ -4,7 +4,7 @@
   // el proyecto a un Worker de Next.js (que espera un build de servidor, no
   // un export estático) y falle con ENOENT en .next/standalone.
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "contacta-representante-latam",
+  "name": "noesinevitable",
   "compatibility_date": "2026-09-11",
   "assets": {
     "directory": "out"

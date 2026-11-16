@@ -1,5 +1,5 @@
 {
-  "name": "contacta-representante-latam",
+  "name": "noesinevitable",
   "version": "0.1.0",
   "private": true,
   "description": "Formulario web para escribirle a representantes políticos de LatAm y España sobre los riesgos de la IA de frontera. Fase 1: envío por mailto:, sin backend.",

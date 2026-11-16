@@ -4,11 +4,17 @@
 
 ## Deploy
 
-- **Live URL:** https://contacta-representante-latam.unpibedecompu.workers.dev/
+- **Live URL:** https://noesinevitable.org/ (también
+  https://noesinevitable.unpibedecompu.workers.dev/).
 - Hosteado en **Cloudflare Workers** (el dashboard nuevo de Cloudflare unificó
   Pages dentro de Workers — esto ya NO es un proyecto "Pages" clásico).
-- Conectado por Git a `unpibedecompu/contacta-representante-latam`, branch
-  `master` → build y deploy automático en cada push.
+  Worker `noesinevitable` (renombrado 2026-11-16; antes
+  `contacta-representante-latam`, cuyo `workers.dev` dejó de andar — se
+  decidió no redirigirlo). **El `name` de `wrangler.jsonc` tiene que
+  coincidir con el nombre del Worker en el dashboard**, o el build de Git
+  falla.
+- Conectado por Git a `unpibedecompu/noesinevitable`, branch `master` →
+  build y deploy automático en cada push.
 - Build command: `npm run build` · Deploy command: `npx wrangler deploy`.
 - El repo tiene `wrangler.jsonc` (`assets.directory: "out"`) — **necesario**:
   sin él, `wrangler deploy` autodetecta "Next.js" e intenta migrar al
