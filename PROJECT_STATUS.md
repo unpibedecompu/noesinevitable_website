@@ -55,8 +55,9 @@
 - **Umami Cloud** (funnel: país elegido, mensaje generado, click en
   Gmail/Outlook, compartido): **conectado y confirmado funcionando** desde
   2026-09-11, en cuenta separada `lucasvitali001@gmail.com` (no
-  `unpibedecompu@gmail.com`). Website "contacta-representante-latam",
-  domain `contacta-representante-latam.unpibedecompu.workers.dev`.
+  `unpibedecompu@gmail.com`). Website "noesinevitable", domain
+  `noesinevitable.org` (renombrado 2026-11-16; antes
+  "contacta-representante-latam", mismo ID y mismos datos).
   Website ID `948684fb-65ac-48d6-bd97-770b72bd8440`, seteado en
   `NEXT_PUBLIC_UMAMI_WEBSITE_ID` (Builds → Variables and secrets).
   - Bug histórico (encontrado y arreglado 2026-09-11): el ID que estaba
@@ -86,6 +87,15 @@
 - El hook `trackFunnel` (`lib/analytics.ts`) es vendor-agnostic — dispara a
   `window.umami`, `window.plausible`, `window.gtag` o `window.fathom`, el
   que esté cargado. Hoy solo Umami está cargado.
+  - Eventos de `lib/analytics.ts` que no aparecen en otros docs (todos en
+    `components/ContactForm.tsx`; al 2026-11-16 ninguno tiene datos en
+    Umami: nadie usó esos botones todavía):
+    - `email_didnt_open_clicked` (prop `office`): click en "¿No se abrió?
+      Copiá el mensaje", el fallback del paso 3 cuando el mail no se abrió
+      en el cliente. Señal de que el `mailto:`/deep link falla.
+    - `write_another_clicked`: click en "Escribirle a alguien más" en el
+      paso 4; vuelve al paso 3.
+    - `repo_link_clicked`: click en "Colaborá en GitHub" al pie del paso 4.
 
 ## Envío de mails
 
