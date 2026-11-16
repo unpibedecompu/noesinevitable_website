@@ -1,18 +1,3 @@
-## Phase 0: (Done)
-
-- create an MVP with countries with easy to scrap representatives emails
-- small outreach on instagram
-- validated by: 20 mail sent
-
-## Phase 1:
-
-- 1 months
-- Bigger outreach on countries where I have leverage: Argentina
-- Scale the solution for 100.000 visitors
-- Validate by: 10.000 email sent
-    - at similar rate convertion as Phase 0: 57 emails / 1500 reel views ~ 0,038 convertion rate
-    - then 10.000 emails / 0,038 convertion rate ~ 264.000 reel views
-
 ## Phase 2:
 - 3 months
 - Focus on countries where It is easy for me to get leverage: Chile, Argentina, Uruguay
