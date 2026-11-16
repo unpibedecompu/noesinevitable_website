@@ -1,5 +1,5 @@
 /**
- * Valida data/representatives.json contra las reglas del PROJECT_SPEC.
+ * Valida data/representatives.json (campos obligatorios, emails, fuentes, `verified`).
  * Uso: node scripts/validate-representatives.mjs   (o: npm run check:data)
  */
 import { readFileSync } from "node:fs";

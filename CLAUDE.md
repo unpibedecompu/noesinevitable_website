@@ -1,7 +1,12 @@
 # Notas para Claude
 
-Leer primero `PROJECT_STATUS.md` (deploy, tareas pendientes), `DATA_TODO.md`
-(datos de representantes) y `PROJECT_ESSENCE.md` (tono del copy).
+Leer primero `PROJECT_STATUS.md` (deploy, analytics, tareas del sitio).
+
+Este repo (`unpibedecompu/noesinevitable_website`, **público**) tiene sólo el
+sitio. La estrategia, la investigación, el financiamiento y la esencia del
+proyecto (tono del copy) están en el repo privado
+`unpibedecompu/noesinevitable_operations` (local:
+`../noesinevitable_operations/`). No traer ese contenido acá.
 
 ## Cómo trabajar en este repo
 

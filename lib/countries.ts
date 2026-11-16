@@ -2,14 +2,14 @@ import type { CountryConfig } from "./types";
 
 /**
  * Países incluidos. Los comentados quedan pendientes de datos verificados
- * (ver DATA_TODO.md). Excluidos a propósito: Venezuela, Perú, Cuba.
+ * en el repo. Excluidos a propósito: Venezuela, Perú, Cuba.
  */
 export const COUNTRIES: CountryConfig[] = [
   { code: "AR", name: "Argentina", bicameral: true, regionLabel: "Provincia", headOfGovernmentOffice: "presidente" },
   // { code: "BO", name: "Bolivia", bicameral: true, regionLabel: "Departamento", headOfGovernmentOffice: "presidente" },
   // { code: "CL", name: "Chile", bicameral: true, regionLabel: "Región", headOfGovernmentOffice: "presidente" },
   // { code: "CO", name: "Colombia", bicameral: true, regionLabel: "Departamento", headOfGovernmentOffice: "presidente" },
-  // Sólo AR y UY tienen datos cargados; el resto se borró de representatives.json (2026-09-30, ver DATA_TODO.md).
+  // Sólo AR y UY tienen datos cargados; el resto se borró de representatives.json (2026-09-30; quedan en el historial de git).
   // { code: "CR", name: "Costa Rica", bicameral: false, regionLabel: "Provincia", headOfGovernmentOffice: "presidente" },
   // { code: "EC", name: "Ecuador", bicameral: false, regionLabel: "Provincia", headOfGovernmentOffice: "presidente" },
   // { code: "SV", name: "El Salvador", bicameral: false, regionLabel: "Departamento", headOfGovernmentOffice: "presidente" },

@@ -6,7 +6,7 @@ import { trackFunnel } from "@/lib/analytics";
 /**
  * Visible en el header, fuera de <ContactForm> — así aparece en los 4 pasos
  * sin depender de scrollear una lista de representantes que en algunos
- * países (AR) puede tener cientos de filas (ver research/2026-09-14-funnel-analysis).
+ * países (AR) puede tener cientos de filas (lo mostró el análisis del embudo de 2026-09-14).
  */
 export default function MeanwhileTeaser() {
   return (

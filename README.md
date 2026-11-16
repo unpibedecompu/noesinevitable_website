@@ -1,10 +1,11 @@
-# Contacta a tu Representante — LatAm + España
+# No Es Inevitable — sitio web
 
 Formulario web para que cualquier persona de Latinoamérica y España le mande un
 email pre-escrito (editable) a sus representantes políticos sobre los riesgos del
 desarrollo de IA de frontera.
 
-Ver [`PROJECT_SPEC.md`](./PROJECT_SPEC.md) para el detalle de alcance y decisiones.
+Estrategia, investigación y financiamiento del proyecto: repo privado
+`unpibedecompu/noesinevitable_operations`.
 Idea basada en <https://controlai.org/take-action>.
 
 ## Estado
@@ -64,7 +65,7 @@ verificados.
 {
   "country": "AR",                       // ISO alpha-2
   "region": "Córdoba",                   // provincia/estado, o null si es cargo nacional
-  "office": "diputado_nacional",         // ver PROJECT_SPEC para valores válidos
+  "office": "diputado_nacional",         // valores válidos: `Office` en lib/types.ts
   "channel": "email",                    // "email" (default) | "form"
   "email": "email@hcdn.gob.ar",          // "" si channel es "form"
   "formUrl": "https://...",              // obligatorio si channel es "form"
@@ -78,9 +79,8 @@ verificados.
 - **`channel: "email"`** → se abre `mailto:`. **`channel: "form"`** → el usuario
   copia el mensaje y se le abre `formUrl` (para cargos que sólo tienen formulario
   web, ej. la Presidencia de México).
-- Estado de carga y pendientes: **[`DATA_TODO.md`](./DATA_TODO.md)**. Hoy: AR y CO
-  con datos oficiales (`verified: true`), MX cargado pero sin verificar (sitios
-  geo-bloqueados) → no se muestra en producción todavía.
+- Hoy hay datos sólo de AR y UY (`lib/countries.ts`). En producción sólo se
+  muestran los `verified: true`.
 
 ## Deploy — Cloudflare Workers (static assets, gratis, tráfico ilimitado)
 
@@ -127,7 +127,7 @@ npx wrangler deploy
 ## Fuera de scope
 
 - **Backend de envío (Resend/SES): descartado** (2026-09-29). Los mails salen
-  del proveedor del usuario, uno por representante — ver `PROJECT_SPEC.md`.
+  del proveedor del usuario, uno por representante — ver `PROJECT_STATUS.md` → "Envío de mails".
 - No implementar todavía: base de datos, representantes provinciales/locales,
   login, dashboard de analytics avanzado, Turnstile (sólo si hay abuso de bots).
 

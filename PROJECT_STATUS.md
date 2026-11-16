@@ -1,6 +1,6 @@
 # Estado del proyecto
 
-Última actualización: 2026-09-29.
+Última actualización: 2026-11-16.
 
 ## Deploy
 
@@ -13,7 +13,8 @@
   decidió no redirigirlo). **El `name` de `wrangler.jsonc` tiene que
   coincidir con el nombre del Worker en el dashboard**, o el build de Git
   falla.
-- Conectado por Git a `unpibedecompu/noesinevitable`, branch `master` →
+- Conectado por Git a `unpibedecompu/noesinevitable_website` (antes
+  `unpibedecompu/noesinevitable`, renombrado 2026-11-16), branch `master` →
   build y deploy automático en cada push.
 - Build command: `npm run build` · Deploy command: `npx wrangler deploy`.
 - El repo tiene `wrangler.jsonc` (`assets.directory: "out"`) — **necesario**:
@@ -39,8 +40,7 @@
   datos verificados de más países.
 - `data/representatives.json` tiene sólo AR y UY: las filas del resto de los
   países (CO, MX, EC, CR, GT, PA, DO) se borraron el 2026-09-30 y quedan en
-  el historial de git. Ver `DATA_TODO.md` para el estado de carga/verificación
-  de representantes por país.
+  el historial de git.
 
 ## Analytics
 
@@ -108,7 +108,8 @@
 - **Decisión 2026-09-29:** se descarta que la página envíe los mails desde
   un backend. Se sigue usando el proveedor de mail del usuario (Gmail /
   Outlook / app nativa), **un mail por representante**, cada uno con su
-  botón. Motivos en `PROJECT_SPEC.md` → "Decisión (2026-09-29)".
+  botón. Motivos en `PROJECT_SPEC.md` → "Decisión (2026-09-29)" (archivo
+  borrado el 2026-11-16; queda en el historial de git).
 - En el paso 3, al abrir el mail para un representante su tarjeta queda con
   un ✓ y el nombre, la descripción y los botones se atenúan (siguen
   clickeables por si el mail no se abrió). Inspirado en ControlAI. El ✓
@@ -217,7 +218,7 @@
       iniciativa": la explicación y el párrafo de cómo funciona) — aprobado
       por el dueño el 2026-10-07.
 - [ ] Reactivar más países en `lib/countries.ts` cuando haya datos
-      verificados (ver `DATA_TODO.md`).
+      verificados.
 
 ## Para más adelante
 

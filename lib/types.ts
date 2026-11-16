@@ -11,7 +11,7 @@ export type Office =
  * Canal de contacto:
  * - `email` (default): tiene dirección de correo → se abre con `mailto:`.
  * - `form`: sólo hay formulario web oficial → el usuario copia el mensaje y
- *   abre `formUrl` en una pestaña nueva (ver PROJECT_SPEC "flujo del form").
+ *   abre `formUrl` en una pestaña nueva.
  */
 export type Channel = "email" | "form";
 
@@ -42,7 +42,7 @@ export interface Representative {
   channel?: Channel;
   /**
    * Email de contacto. Puede ser institucional genérico si no hay email personal
-   * (ver PROJECT_SPEC). Vacío ("") sólo si `channel` es "form".
+   * Vacío ("") sólo si `channel` es "form".
    */
   email: string;
   /** URL del formulario oficial. Obligatorio si `channel` es "form". */
