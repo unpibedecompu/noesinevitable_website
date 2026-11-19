@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import SocialIcons from "@/components/SocialIcons";
+import Explanation from "@/components/Explanation";
 import { DESCRIPTION } from "@/lib/site-meta";
 import siteCopy from "@/data/site-copy.json";
 import ParticipationDonuts from "@/components/ParticipationDonuts";
@@ -29,7 +31,7 @@ export default function HomePage() {
         <h1 className="mt-1 text-xl font-bold leading-tight sm:text-2xl">
           Sobre esta iniciativa
         </h1>
-        <p className="mt-3 text-base text-ink/70">{siteCopy.explanation}</p>
+        <Explanation />
         <p className="mt-3 text-base text-ink/70">
           {siteCopy.pageTitle} te ayuda a escribirle a tus representantes
           políticos para expresarles tu preocupación por el desarrollo
@@ -65,10 +67,11 @@ export default function HomePage() {
         </div>
       </Reveal>
 
-      <footer className="mt-12 border-t border-ink/10 pt-6 text-xs text-ink/50">
+      <footer className="mt-12 flex flex-wrap items-center justify-between gap-3 border-t border-ink/10 pt-6 text-xs text-ink/50">
         <Link href="/contacta-representantes/" className="font-semibold text-accent-dark underline">
           Ir al formulario →
         </Link>
+        <SocialIcons location="footer_home" />
       </footer>
     </main>
   );

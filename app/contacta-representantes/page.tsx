@@ -1,5 +1,7 @@
 import { COUNTRIES, COUNTRY_CODES } from "@/lib/countries";
 import Link from "next/link";
+import SocialIcons from "@/components/SocialIcons";
+import Explanation from "@/components/Explanation";
 import { getRepresentatives } from "@/lib/representatives";
 import ContactForm from "@/components/ContactForm";
 import MeanwhileTeaser from "@/components/MeanwhileTeaser";
@@ -32,15 +34,7 @@ export default function Page() {
         <h1 className="mt-1 text-3xl font-bold leading-tight sm:text-4xl">
           {siteCopy.callToAction}
         </h1>
-        <p className="mt-3 text-base text-ink/70">{siteCopy.explanation}</p>
-        <a
-          href={siteCopy.explanationSourceUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-1 block text-sm font-medium text-accent-dark underline underline-offset-2"
-        >
-          {siteCopy.explanationSourceLabel}
-        </a>
+        <Explanation />
         <MeanwhileTeaser />
       </header>
 
@@ -64,11 +58,12 @@ export default function Page() {
           datos. Sólo contamos cuántos mails se mandan, con una copia a
           registro@noesinevitable.org.
         </p>
-        <p className="mt-2">
+        <div className="mt-2 flex flex-wrap items-center justify-between gap-3">
           <Link href="/" className="font-semibold text-accent-dark underline">
             Sobre esta iniciativa →
           </Link>
-        </p>
+          <SocialIcons location="footer_form" />
+        </div>
       </footer>
     </main>
   );
