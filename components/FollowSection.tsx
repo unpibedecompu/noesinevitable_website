@@ -1,7 +1,4 @@
-"use client";
-
-import { trackFunnel } from "@/lib/analytics";
-import { NEWSLETTER_URL, SOCIAL_LINKS } from "@/lib/social";
+import SocialIcons from "@/components/SocialIcons";
 import siteCopy from "@/data/site-copy.json";
 
 /** Bloque de redes/newsletter. Se repite en el paso 4 del formulario y en la home (/). */
@@ -14,29 +11,7 @@ export default function FollowSection({ location }: { location: string }) {
       <p className="mx-auto mt-2 max-w-md text-sm text-ink/70">
         {siteCopy.seguimeDescription}
       </p>
-      <div className="mt-3 flex flex-wrap justify-center gap-2">
-        {SOCIAL_LINKS.map(({ network, label, url }) => (
-          <a
-            key={network}
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackFunnel("social_link_clicked", { network, location })}
-            className="rounded-full border border-ink/20 px-4 py-2 text-sm font-semibold hover:bg-ink/5"
-          >
-            {label}
-          </a>
-        ))}
-        <a
-          href={NEWSLETTER_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => trackFunnel("social_link_clicked", { network: "newsletter", location })}
-          className="rounded-full border border-ink/20 px-4 py-2 text-sm font-semibold hover:bg-ink/5"
-        >
-          Newsletter
-        </a>
-      </div>
+      <SocialIcons location={location} size="lg" className="mt-3 justify-center" />
     </div>
   );
 }
