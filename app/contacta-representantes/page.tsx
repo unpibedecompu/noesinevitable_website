@@ -1,6 +1,7 @@
 import { COUNTRIES, COUNTRY_CODES } from "@/lib/countries";
 import Link from "next/link";
 import SocialIcons from "@/components/SocialIcons";
+import Explanation from "@/components/Explanation";
 import { getRepresentatives } from "@/lib/representatives";
 import ContactForm from "@/components/ContactForm";
 import MeanwhileTeaser from "@/components/MeanwhileTeaser";
@@ -33,15 +34,7 @@ export default function Page() {
         <h1 className="mt-1 text-3xl font-bold leading-tight sm:text-4xl">
           {siteCopy.callToAction}
         </h1>
-        <p className="mt-3 text-base text-ink/70">{siteCopy.explanation}</p>
-        <a
-          href={siteCopy.explanationSourceUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-1 block text-sm font-medium text-accent-dark underline underline-offset-2"
-        >
-          {siteCopy.explanationSourceLabel}
-        </a>
+        <Explanation />
         <MeanwhileTeaser />
       </header>
 
