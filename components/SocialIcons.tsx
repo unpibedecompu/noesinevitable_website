@@ -10,9 +10,8 @@ import {
   FaXTwitter,
   FaYoutube,
 } from "react-icons/fa6";
-import { SiSubstack } from "react-icons/si";
 import { trackFunnel } from "@/lib/analytics";
-import { NEWSLETTER_URL, SOCIAL_LINKS } from "@/lib/social";
+import { SOCIAL_LINKS } from "@/lib/social";
 
 const ICONS: Record<(typeof SOCIAL_LINKS)[number]["network"], IconType> = {
   x: FaXTwitter,
@@ -24,10 +23,7 @@ const ICONS: Record<(typeof SOCIAL_LINKS)[number]["network"], IconType> = {
   whatsapp: FaWhatsapp,
 };
 
-const LINKS: { network: string; label: string; url: string; Icon: IconType }[] = [
-  ...SOCIAL_LINKS.map((l) => ({ ...l, Icon: ICONS[l.network] })),
-  { network: "newsletter", label: "Newsletter", url: NEWSLETTER_URL, Icon: SiSubstack },
-];
+const LINKS = SOCIAL_LINKS.map((l) => ({ ...l, Icon: ICONS[l.network] }));
 
 const SIZES = {
   /** Fila chica del footer. */
@@ -36,7 +32,7 @@ const SIZES = {
   lg: { gap: "gap-2", link: "p-2.5", icon: 24 },
 };
 
-/** Fila de íconos de redes (y newsletter) de la organización. */
+/** Fila de íconos de redes de la organización. */
 export default function SocialIcons({
   location,
   size = "sm",

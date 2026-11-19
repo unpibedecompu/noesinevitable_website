@@ -8,5 +8,3 @@ export const SOCIAL_LINKS = [
   { network: "facebook", label: "Facebook", url: "https://www.facebook.com/noesinevitable" },
   { network: "whatsapp", label: "WhatsApp", url: "https://whatsapp.com/channel/0029VbETxcKFnSz9h0ihmP32" },
 ] as const;
-
-export const NEWSLETTER_URL = "https://unpibedecompu.substack.com";

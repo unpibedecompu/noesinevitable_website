@@ -1,7 +1,7 @@
 import SocialIcons from "@/components/SocialIcons";
 import siteCopy from "@/data/site-copy.json";
 
-/** Bloque de redes/newsletter. Se repite en el paso 4 del formulario y en la home (/). */
+/** Bloque de redes. Se repite en el paso 4 del formulario y en la home (/). */
 export default function FollowSection({ location }: { location: string }) {
   return (
     <div>
