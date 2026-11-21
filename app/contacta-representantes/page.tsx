@@ -20,18 +20,7 @@ export default function Page() {
   return (
     <main className="mx-auto max-w-2xl px-4 pb-16 pt-8 sm:pt-12">
       <header className="mb-8">
-        <div className="flex items-center justify-between gap-4">
-          <p className="text-sm font-semibold uppercase tracking-wide text-accent-dark">
-            {siteCopy.pageTitle}
-          </p>
-          <Link
-            href="/"
-            className="shrink-0 rounded-md bg-accent px-3 py-1.5 text-sm font-semibold text-ink shadow-sm transition hover:bg-accent-dark"
-          >
-            Sobre esta iniciativa
-          </Link>
-        </div>
-        <h1 className="mt-1 text-3xl font-bold leading-tight sm:text-4xl">
+        <h1 className="text-3xl font-bold leading-tight sm:text-4xl">
           {siteCopy.callToAction}
         </h1>
         <Explanation />

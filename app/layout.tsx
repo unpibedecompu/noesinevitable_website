@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "./globals.css";
+import TopBar from "@/components/TopBar";
 import { TITLE, DESCRIPTION } from "@/lib/site-meta";
 
 // Cloudflare Web Analytics: gratis, sin cookies, ilimitado. El token sale del
@@ -33,6 +34,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body>
+        <TopBar />
         {children}
         {CF_BEACON_TOKEN && (
           <Script

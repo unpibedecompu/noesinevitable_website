@@ -23,15 +23,7 @@ export default function AboutPage() {
   return (
     <main className="mx-auto max-w-2xl px-4 pb-16 pt-8 sm:pt-12">
       <header>
-        <div className="flex items-center justify-between gap-4">
-          <Link
-            href="/"
-            className="text-sm font-semibold uppercase tracking-wide text-accent-dark"
-          >
-            {siteCopy.pageTitle}
-          </Link>
-        </div>
-        <h1 className="mt-1 text-3xl font-bold leading-tight sm:text-4xl">
+        <h1 className="text-3xl font-bold leading-tight sm:text-4xl">
           Sobre esta iniciativa
         </h1>
       </header>
