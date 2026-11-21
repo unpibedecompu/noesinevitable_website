@@ -43,6 +43,12 @@ export default function HomePage() {
         >
           Escribile a tus representantes →
         </Link>
+        <Link
+          href="/sobre-la-iniciativa/"
+          className="ml-4 mt-4 inline-block text-sm font-semibold text-accent-dark underline underline-offset-2"
+        >
+          Conocé más sobre la iniciativa
+        </Link>
       </header>
 
       <Reveal>
