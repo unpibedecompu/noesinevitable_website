@@ -10,7 +10,7 @@ import siteCopy from "@/data/site-copy.json";
 export default function TopBar() {
   return (
     <nav className="sticky top-0 z-50 border-b border-ink/10 bg-[#f7f7f5]/90 backdrop-blur">
-      <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3">
+      <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3 max-[379px]:px-2">
         <Link href="/" aria-label={`${siteCopy.pageTitle}: inicio`} className="flex shrink-0 items-center gap-2 max-[379px]:hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/icon.svg" alt="" width={36} height={36} className="h-8 w-8 sm:h-9 sm:w-9" />
@@ -29,7 +29,7 @@ export default function TopBar() {
             href="/contacta-representantes/"
             className="whitespace-nowrap rounded-full border border-transparent bg-accent px-2.5 py-1.5 text-[11px] font-semibold text-ink shadow-sm transition hover:bg-accent-dark sm:px-4 sm:py-2 sm:text-sm"
           >
-            Escribile a tu representante
+            Escribile a tus representantes
           </Link>
         </div>
       </div>
